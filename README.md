@@ -39,7 +39,7 @@ long then we should be able to remember this maximum bitdepth and store the arra
 Requiring only three bytes. (padded to the <em>right</em> with zeores)
 
 We can achieve this effect by leveraging fast logical operations to pre-form whole bytes of our
-desired serial enoding, and writing
+desired serial encoding, and writing
 these engineered bytes to disk in keeping with hardware convention. We then reverse the process come
 read time.
 
