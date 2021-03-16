@@ -236,6 +236,8 @@ class bitwise::ibitStream {
 
     void seek(size_t n, ios_base::seekdir sd) { f.seekg(n, sd); }
 
+    size_t tell() { return f.tellg(); }
+
     usint *read(streamsize n, byte *pattern, int patternLength) {
         /*
          * Buffers n bytes from the stream, decodes them according to the bitdepth pattern specified
@@ -302,6 +304,8 @@ class bitwise::obitStream {
     void close() { obitStream::~obitStream(); }
 
     void seek(size_t n, ios_base::seekdir sd) { f.seekg(n, sd); }
+
+    size_t tell() { return f.tellg(); }
 
     void write(usint *data, size_t dataLength, byte *pattern, int patternLength) {
         /*

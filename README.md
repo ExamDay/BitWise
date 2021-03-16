@@ -243,9 +243,11 @@ obs.close();
 (in binary mode).
 Meaning that they move the cursor a certain number of "bytes in the file" and not
 "encoded datites in the file". The latter would involve bit-level seeking which is impossible.
-But say you want to seek to 420 bytes from the end of the file, for example, you would do:
+But say you want to seek to 420 bytes from the end of the file and then read back your final
+position, you would do:
 ```cpp
 ibs.seek(-420, ios::end);
+size_t loc = ibs.tell();
 ```
 ## Contributing
 For contributors to the project; do this before making your first commit:
