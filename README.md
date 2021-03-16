@@ -196,7 +196,7 @@ for (int i = 0; i < decLength; i++) {
 cout << endl;
 ```
 - In this case we decode the entire file at once which may not be practical for large files.
-To buffer only a specified number of bytes at once, simply set "n" in .read() to the
+To buffer only a specified number of bytes at once, simply set "n" in ibitStream.read() to the
 desired number of bytes. NOTE: This will return decoded arrays of varying length, depending
 on your bitdepth pattern. This should rarely if ever be a problem, but if it does become
 annoying for your use case at any point, the BitWise encodedLength and decodedLength
