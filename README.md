@@ -223,7 +223,7 @@ size_t dataLength = sizeof(data) / sizeof(unsigned short int)
 unsigned char pattern[] = {3, 2, 9};
 size_t patternLength = sizeof(pattern);  // unsigned chars are one byte long
 
-oibitStream obs(outfile);
+obitStream obs(outfile);
 obs.write(data, dataLength, pattern, patternLength);
 ```
 - Then for a quick sanity check you can compare the number of bytes proportedly written to the file
