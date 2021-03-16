@@ -44,8 +44,8 @@ these engineered bytes to disk in keeping with hardware convention. We then reve
 read time.
 
 BitWise provides two primary tools. The first is an efficient bit-coder for packing/unpacking an
-array of values to and from specified bitdepths. The second is an fstream-style binary file handler
-with these coders built in to facilitate bitwise read/write operations on storage.
+array of values to and from specified bitdepths. The second is an fstream-style, binary file handler
+with coders built-in to facilitate bitwise read/write operations on storage.
 ## How to Compile
 #### Linux
 - Clone this repository, then compile the test program with:
@@ -223,7 +223,7 @@ size_t dataLength = sizeof(data) / sizeof(unsigned short int)
 unsigned char pattern[] = {3, 2, 9};
 size_t patternLength = sizeof(pattern);  // unsigned chars are one byte long
 
-oibitStream obs(outfile);
+obitStream obs(outfile);
 obs.write(data, dataLength, pattern, patternLength);
 ```
 - Then for a quick sanity check you can compare the number of bytes proportedly written to the file
