@@ -72,7 +72,7 @@ int main(int argc, char **argv) {
     byte bitDepths[] = {3, 2, 9};
     ibitStream ibs(ivalue);
     cout << "reading..." << endl;
-    usint* decodedData = ibs.read(ibs.fileSize, bitDepths, sizeof(bitDepths));
+    usint* decodedData = ibs.read(ibs.getFileSize(), bitDepths, sizeof(bitDepths));
     cout << "filesize: " << ibs.getFileSize() << endl;
     size_t decLength = ibs.outLength;
     cout << "decLength: " << decLength << endl;
