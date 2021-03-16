@@ -182,7 +182,7 @@ byte *bitwise::bitEncode(byte *pattern, size_t patternLength, usint *data, size_
                 // this means case like:
                 // surplus = 5
                 // tBitsLeft = 3
-                // datum = [XXX_,____] <-- then we are given a datum like this
+                //  datum = [XXX_,____] <-- then we are given a datum like this
                 // buffer = [____,_XXX][XXXX,XXXX] <-- and a buffer looking like this
                 // buffer = [XXX_,____][____,____] <-- we left shift to truncate the buffer
                 // buffer = [____,____][___X,XX__] <-- and right shift to position like so
@@ -193,7 +193,7 @@ byte *bitwise::bitEncode(byte *pattern, size_t patternLength, usint *data, size_
                 // this means case like:
                 // surplus = 3
                 // tBitsLeft = 7
-                // datum = [XXXX,X___] <-- then we are given a datum like this
+                //  datum = [XXXX,X___] <-- then we are given a datum like this
                 // buffer = [____,_XXX][XXXX,XXXX] <-- and a buffer looking like this
                 // buffer = [XXXX,XXX_][____,____] <-- we left shift to truncate the buffer
                 // buffer = [____,____][____,_XXX] <-- and right shift to position like so
@@ -222,9 +222,9 @@ class bitwise::ibitStream {
     fstream f;
     ios::openmode mode = ios::in | ios::binary;
     byte *inputData = new byte[1];
+    size_t fileSize = 0;
 
   public:
-    size_t fileSize = 0;
     size_t outLength = 0;
     ibitStream(string filename) { f.open(filename, mode); }
     ~ibitStream() {
@@ -250,8 +250,8 @@ class bitwise::ibitStream {
          * Furthermore, there is no c++ datastructure requiring more than 255 bits per value that
          * s could be an array of, so one byte per element is more than sufficient.
          * (long doubles are only 96 bits each).
-         * Pattern is circularly indexed, do if end of pattern is reached, this continues from the
-         * first element in the pattern.
+         * Pattern is circularly indexed, so this continues from the first element in the pattern
+         * if end of pattern is reached mid-encoding.
          */
         delete[] inputData;
         outLength = decodedLength(pattern, patternLength, n);
@@ -260,7 +260,7 @@ class bitwise::ibitStream {
         return bitDecode_usint(pattern, patternLength, inputData, n);
     }
 
-    void readTo(char * s, streamsize n, byte *pattern, int patternLength) {
+    void readTo(char *s, streamsize n, byte *pattern, int patternLength) {
         /*
          * Like ibitStream.read() but stores the decoded data in the array pointed to by s.
          * Like the standard fstream.read(), s need not be a char array but it must be passed as
@@ -276,7 +276,7 @@ class bitwise::ibitStream {
         f.read((char *)inputData, n);
         s = bitDecode_usint(pattern, patternLength, inputData, n);
     }
-    int getFileSize() {
+    size_t getFileSize() {
         // get number of bytes in file:
         if
             !(fileSize) {
@@ -292,10 +292,10 @@ class bitwise::obitStream {
   private:
     fstream f;
     ios::openmode mode = ios::out | ios::binary;
+    size_t fileSize = 0;
 
   public:
     size_t outLength = 0;
-    size_t fileSize = 0;
     obitStream(string filename) { f.open(filename, mode); }
     ~obitStream() { f.close(); }
 
@@ -314,7 +314,7 @@ class bitwise::obitStream {
         f.write((char *)bitEncode(pattern, patternLength, data, dataLength), outLength);
     }
 
-    int getFileSize() {
+    size_t getFileSize() {
         /* get number of bytes in file */
         if
             !(fileSize) {
