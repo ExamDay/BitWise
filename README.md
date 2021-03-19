@@ -4,8 +4,7 @@
 Today's computers perform memory operations on a byte-by-byte basis.
 This is a feature of RAM and storage architectures at the hardware level and programming languages
 are written with this fact in mind. While it is very time-efficient for data to be addressed this way
-, it also means that the smallest chunk of memory that can be read from, or written to, is a single
-byte (8 bits at once). This poses an obstacle to certain compression schemes and other programs that
+, it also means that the smallest chunk of memory that can be read from, or written to, is an entire 8-bit chunk. This poses an obstacle to certain compression schemes and other programs that
 demand bit-level precision. Because this limitation is baked in at the hardware level there is no
 software solution for direct manipulation of individual bits. However, it is still possible to encode
 information with bit-level precision (and thereby make maximum use of available storage/bandwidth) so
