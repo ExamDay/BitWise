@@ -74,7 +74,7 @@ cd /path/to/this/repository/
 clang example.cpp -o example.bin
 ```
 - then run with:
-```bash
+```zsh
 ./example.bin -i infileExample.bin -o outfileExample.bin
 ```
 ## How to Use
