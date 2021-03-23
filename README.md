@@ -2,8 +2,7 @@
 
 ## Why BitWise?
 Today's computers perform memory operations on a byte-by-byte basis.
-This is a feature of RAM and storage architectures at the hardware level and programming languages
-are written with this fact in mind. While it is time-efficient for data to be addressed this way, 
+This is a feature of RAM and storage architectures at the hardware level. While it is time-efficient for data to be addressed this way, 
 it also means that the smallest chunk of memory that can be read from, or written to, is 8 bits long. This poses an obstacle to certain compression schemes and other programs that
 demand bit-level precision. Because this limitation is baked in at the hardware level there is no
 software solution for direct manipulation of individual bits. However, it is still possible to encode
