@@ -38,7 +38,7 @@ Requiring only three bytes. (padded to the <em>right</em> with zeores)
 
 We can achieve this effect by leveraging fast logical operations to pre-form whole bytes of our
 desired serial encoding, and writing
-these engineered bytes to disk in keeping with hardware convention. We then reverse the process come
+these engineered bytes to disk in keeping with hardware convention. We then reverse the process at
 read time.
 
 BitWise provides two primary tools. The first is an efficient bit-coder for packing/unpacking an
