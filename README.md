@@ -7,7 +7,7 @@ it also means that the smallest chunk of memory that can be read from, or writte
 demand bit-level precision. Because this limitation is baked in at the hardware level there is no
 software solution for direct manipulation of individual bits. However, it is still possible to encode
 information with bit-level precision (and thereby make maximum use of available storage/bandwidth) so
-long as we are willing to make some small sacrifices.
+long as we are willing to make some small sacrifices to complexity.
 ## How it Works
 Consider a number like 17, or in binary: 10001. This number is only 5 bits long, but
 because of aforementioned hardware limitations it is padded to the left
