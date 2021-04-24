@@ -41,7 +41,7 @@ into our desired encoding. We can then write individual bytes of this serial enc
 with hardware limitations &#8212; then reversing the process at read time.
 
 BitWise provides two primary tools. The first is an efficient bit-coder for packing/unpacking an
-array of values to and from specified bitdepths. The second is an fstream-style, binary file handler
+array to-and-from specified bitdepths. The second is an fstream-style, binary file handler
 with coders built-in to facilitate bitwise read/write operations on storage.
 ## How to Compile
 #### Linux
