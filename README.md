@@ -36,10 +36,9 @@ long then we should be able to remember this maximum bitdepth and store the arra
 ```
 Requiring only three bytes. (padded to the <em>right</em> with zeores)
 
-We can achieve this effect by leveraging fast logical operations to pre-form whole bytes of our
-desired serial encoding, and writing
-these engineered bytes to disk in keeping with hardware convention. We then reverse the process at
-read time.
+We can achieve this by applying a pattern of bit-masks to our data and carefully organizing the output
+into our desired encoding. We can then write individual bytes of this serial encoding to disk in keeping
+with hardware limitations &#8212; reversing the process at read time.
 
 BitWise provides two primary tools. The first is an efficient bit-coder for packing/unpacking an
 array of values to and from specified bitdepths. The second is an fstream-style, binary file handler
