@@ -11,12 +11,11 @@ long as we are willing to make some small sacrifices to complexity.
 ## How it Works
 Consider a number like 17, or in binary: 10001. This number is only 5 bits long, but
 because of aforementioned hardware limitations it is padded to the left
-with zeroes and stored as 00010001. In the case of a single number, this does not amount to
+with zeroes and stored as 00010001. In the case of a single number this does not amount to
 much wasted space and
 is in fact the best we can do. However, when working with serial data this issue becomes much more
 pertinent and much more tractible. In datasets composed primarily
-of numbers that do not exceed some known bitdepth that is not itself a multiple of 8
-(which is almost all of them) these padding bits quickly add up.
+of numbers that do not exceed some known bitdepth (which is almost all of them) these padding bits quickly add up.
 
 Consider the following array of integers:
 ```
@@ -38,9 +37,9 @@ Requiring only three bytes. (padded to the <em>right</em> with zeores)
 
 We can achieve this by applying a pattern of bit-masks to our data and carefully organizing the output
 into our desired encoding. We can then write individual bytes of this serial encoding to disk in keeping
-with hardware limitations &#8212; then reversing the process at read time.
+with hardware limitations &#8212; then reverse the process at read time.
 
-BitWise provides two primary tools. The first is an efficient bit-coder for packing/unpacking an
+Primarily, BitWise provides two tools. The first is an efficient bit-coder for packing/unpacking an
 array to-and-from specified bitdepths. The second is an fstream-style, binary file handler
 with coders built-in to facilitate bitwise read/write operations on storage.
 ## How to Compile
